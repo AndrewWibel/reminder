@@ -6,7 +6,7 @@ gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -24,7 +24,19 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+#Hirb
+gem 'hirb'
+
+#rufus scheduler
+gem 'rufus-scheduler'
+
+#progress bag
+gem 'ruby-progressbar', '~> 1.7', '>= 1.7.5'
+
+#bootstrap
+gem 'bootstrap-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

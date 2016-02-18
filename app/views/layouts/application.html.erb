@@ -7,7 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if flash[:errors] %>
+  <% flash.each do |e ,mess| %>
+    <p><%= mess %></p>
+  <% end %>
+<% end %>
 
+<% if current_user %>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Responsible Dev</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/dashboard"><span class="glyphicon glyphicon-home"></span> Home</a></li>  
+        <li>
+          <a href="/sessions" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </li>
+       </ul>
+     </div>
+   </nav>
+<% end %>
 <%= yield %>
 
 </body>
