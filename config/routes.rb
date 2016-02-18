@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   #routes for sessions 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
-  
+
+  #routes for the tasks
+  post '/tasks' => 'tasks#create'
+  patch '/tasks/:id' => 'tasks#update'
+  delete '/tasks/:id' => 'tasks#destroy'
 end
