@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
-	def self.every_2mins
-		puts 'dsjfh'
-	end
+	# def start_tasks
+	# 	scheduler.every("10s") do
+	# 	puts "Scheduler invoked"
+	# end
 end
