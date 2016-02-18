@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
   validates :first_name, :email, :last_name,presence: true
   validates :email, uniqueness: {case_sensitive: false}, :format =>{:with => EMAIL_REGEX} 
   # validates :password, confirmation: true
+
+  #relationships
+  has_many :tasks
 end
