@@ -1,6 +1,6 @@
 require 'rufus-scheduler'
 
-$scheduler = Rufus::Scheduler::singleton
+$scheduler = Rufus::Scheduler.new
 
 # scheduler.every('15m') do
 # 	Task.every_15mins
@@ -12,7 +12,7 @@ $scheduler = Rufus::Scheduler::singleton
 
 # scheduler.every('1h') do
 # 	Task.every_hour
-# end
+# endß
 
 # scheduler.every('3h') do
 # 	Task.every_3hours

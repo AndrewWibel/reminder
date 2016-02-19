@@ -22,6 +22,7 @@
 							<form role="form" action ="/tasks/<%=task.id%>" method ="post">
 								<input name ="authenticity_token" value ="<%= form_authenticity_token%>" type="hidden">
 								<input name ="_method" value ="delete" type="hidden">
+								<input type='hidden' name='to_p' value='<%= task.name %>'>
 								<button type="submit" class="btn btn-default">Remove</button>
 							</form>
 						</td>

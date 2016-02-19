@@ -23,7 +23,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/dashboard"><span class="glyphicon glyphicon-home"></span> Home</a></li>  
         <li>
-          <a href="/sessions" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+          <form action='/sessions' method='post'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <input type='submit' value='Logout'>
+
+          </form>
+          <!-- <a href="/sessions" data-method="delete"><span class="glyphicon glyphicon-log-out"></span> Logout</a> -->
         </li>
        </ul>
      </div>

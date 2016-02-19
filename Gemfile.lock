@@ -150,6 +150,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  actionmailer
   bcrypt (~> 3.1.7)
   bootstrap-sass
   byebug
