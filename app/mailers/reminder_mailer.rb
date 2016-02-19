@@ -1,8 +1,8 @@
 class ReminderMailer < ApplicationMailer
-
-	def task_email(task)
+	default :from => "jiminsphess@gmail.com"
+	def task_email(task,user)
 		@task = task
 		@url = '/'
-		mail(to: 'andrew.wibel@gmail.com', subject: @task)
+		mail(to: user, subject: @task)
 	end
 end
