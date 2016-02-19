@@ -14,7 +14,10 @@ class TasksController < ApplicationController
 			"1y" => "Every year"
 		}
 
+		Task.create(name:params[:name], freq:params[:freq], user: current_user)
+
 		if params[:freq] == 'in_5mins'
+
 			Task.in_5mins(params[:name], current_user)
 		elsif params[:freq] == 'in_10mins'
 			Task.in_10mins(params[:name], current_user)
@@ -35,7 +38,7 @@ class TasksController < ApplicationController
 												
 		end
 
-		Task.create(name:params[:name], freq:params[:freq], user: current_user)
+		# Task.create(name:params[:name], freq:params[:freq], user: current_user)
 		redirect_to :back
 	end
 
