@@ -1,6 +1,6 @@
 require 'rufus-scheduler'
 
-# scheduler = Rufus::Scheduler::singleton
+$scheduler = Rufus::Scheduler::singleton
 
 # scheduler.every('15m') do
 # 	Task.every_15mins
