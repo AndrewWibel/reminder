@@ -17,21 +17,21 @@ class TasksController < ApplicationController
 		if params[:freq] == 'in_5mins'
 			Task.in_5mins(params[:name], current_user)
 		elsif params[:freq] == 'in_10mins'
-			Task.in_10mins(params[:name])
+			Task.in_10mins(params[:name], current_user)
 		elsif params[:freq] == 'in_15mins'
-			Task.in_15mins(params[:name])
+			Task.in_15mins(params[:name], current_user)
 		elsif params[:freq] == 'in_30mins'
-			Task.in_30mins(params[:name])
+			Task.in_30mins(params[:name], current_user)
 		elsif params[:freq] == 'in_1hour'
-			Task.in_1hour(params[:name])
+			Task.in_1hour(params[:name], current_user)
 		elsif params[:freq] == 'every_15mins'
-			Task.every_15mins(params[:name])
+			Task.every_15mins(params[:name], current_user)
 		elsif params[:freq] == 'every_30mins'
-			Task.every_30mins(params[:name])
+			Task.every_30mins(params[:name], current_user)
 		elsif params[:freq] == 'every_hour'
-			Task.every_hour(params[:name])
+			Task.every_hour(params[:name], current_user)
 		else 
-			Task.every_3hours(params[:name])
+			Task.every_3hours(params[:name], current_user)
 												
 		end
 
