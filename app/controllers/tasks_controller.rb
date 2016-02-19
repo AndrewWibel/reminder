@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 		}
 
 		if params[:freq] == 'in_5mins'
-			Task.in_5mins(params[:name])
+			Task.in_5mins(params[:name], current_user)
 		elsif params[:freq] == 'in_10mins'
 			Task.in_10mins(params[:name])
 		elsif params[:freq] == 'in_15mins'
