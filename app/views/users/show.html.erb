@@ -1,11 +1,12 @@
 <div class ="container">
 	<div class ="row" "col-sm-3">
-		<p> Hi <%=@user.first_name%> </p>
+		<h2 style ="display:inline-block"> Hello <%=@user.first_name%> !</h2>
+		<%= image_tag("remindme-07.png", :alt => "logo", :style =>"width: 100px; height:150px; float:right;") %>
 	</div>
 
-	<div class ="row" "col-sm-6">
+	<div class ="row" "col-sm-8" "col-sm-offset-2" >
 		<h3>All Tasks</h3>
-		<table class="table table-striped" style="width: 50%">
+		<table class="table table-striped" style="width: 100%">
 			<thead>
 				<tr>
 					<th>Task</th>
@@ -17,7 +18,7 @@
 				<%@user_tasks.each do |task|%>
 					<tr>
 						<td><%=task.name%></td> 
-						<td><%=task.freq%></td>
+						<td><%=task.freq.sub(/_/, " ")%></td>
 						<td>
 							<form role="form" action ="/tasks/<%=task.id%>" method ="post">
 								<input name ="authenticity_token" value ="<%= form_authenticity_token%>" type="hidden">
@@ -32,7 +33,7 @@
 		</table>
 
 	</div>
-	<div class ="row" "col-sm-3">
+	<div class ="row" "col-sm-4">
 		<h3>Add Tasks</h3>
 		<div class ="col-sm-3">
 			<form role="form" action ="/tasks" method ="post">
@@ -43,29 +44,36 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="frequency">Frequency:</label>
-			    	<form>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='every_15mins'>Every 15mins
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='every_30mins'>Every 30mins
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='every_hour'>Every Hour
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='every_3hours'>Every 3 Hours
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='in_5mins'>In 5 minutes
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='in_10mins'>In 10 minutes
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='in_15mins'>In 15 minutes
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='in_30mins'>In 30 minutes
+			    	</div>
+			    	<div class="radio">
 			    		<input type='radio' name='freq' value='in_1hour'>In 1 hour
-<!-- 			    <select class="form-control" name="frequency">
-					<option value="10m">Every 10 minutes</option>
-					<option value="30m">Every 30 minutes</option>
-					<option value="1h">Every hour</option>
-					<option value="1d">Every day</option>
-					<option value="1w">Every week</option>
-					<option value="1M">Every month</option>
-					<option value="1y">Every year</option>
-				</select> -->
+			    	</div>
 			  <button type="submit" class="btn btn-default">Add Task</button>
 			</form>
+
 		</div>
 	</div>
-
-
 </div>
