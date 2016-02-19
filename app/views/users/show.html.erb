@@ -11,6 +11,7 @@
 				<tr>
 					<th>Task</th>
 					<th>Frequency</th>
+					<th>Created at </th>
 					<th></th>
 				</tr>
 			</thead>
@@ -19,6 +20,7 @@
 					<tr>
 						<td><%=task.name%></td> 
 						<td><%=task.freq.sub(/_/, " ")%></td>
+						<td><%=task.created_at.strftime("%b %d, %Y %I:%M %p")%></td>
 						<td>
 							<form role="form" action ="/tasks/<%=task.id%>" method ="post">
 								<input name ="authenticity_token" value ="<%= form_authenticity_token%>" type="hidden">
