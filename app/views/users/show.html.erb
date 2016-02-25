@@ -19,7 +19,7 @@
 				<%@user_tasks.each do |task|%>
 					<tr>
 						<td><%=task.name%></td> 
-						<td><%=task.freq.sub(/_/, " ")%></td>
+						<td><%=task.freq%></td>
 						<td><%=task.created_at.strftime("%b %d, %Y %I:%M %p")%></td>
 						<td>
 							<form role="form" action ="/tasks/<%=task.id%>" method ="post">

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
       # respond_to do |format|
-        @new_user = User.new(first_name: params[:first_name], last_name: params[:last_name],email: params[:email], password: params[:password])
+        @new_user = User.new(first_name: params[:first_name], last_name: params[:last_name],email: params[:email],phone_number: params[:phone_number], password: params[:password])
           if @new_user.valid?	&& @new_user.authenticate(params[:password])
 	  	      if @new_user.save
               UserMailer.registration_confirmation(@new_user).deliver
