@@ -49,12 +49,7 @@ class TasksController < ApplicationController
 	def destroy
 		Task.destroy(params[:id])
 		#need to learn how to destroy it from scheduler
-		 $scheduler.jobs(:tag => params[:to_p]).each do |mess|
-		 	# puts params[:to_p], 'PARAMSSS'
-		 	if mess.tags.include?(params[:to_p])
-		 		mess.unschedule
-		 	end
-		 end
+		Task.unschedule(params[:to_p])
 		redirect_to :back 
 	end
 
