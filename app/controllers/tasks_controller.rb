@@ -58,16 +58,5 @@ class TasksController < ApplicationController
 		redirect_to :back 
 	end
 
-	def send_sms
-		message = params[:name]
-		number = current_user.phone_number
-		account_sid = 'AC1997b3f0c07e7f6e25a885b469f4fc08'
-		auth_token = 'cecff1fd5f3af108e5e22c69f18b2f8f'
-
-		@client = @client.account.messages.create({:to => '+1' + "#{number}",
-													:from => "+18316099375",
-													:body => "#{message}"})
-
-	end
 end
 
