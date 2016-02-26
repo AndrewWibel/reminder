@@ -79,7 +79,7 @@ class Task < ActiveRecord::Base
 
 	def self.in_5mins(task, user)
 		# @task = task
-		$scheduler.in('5m' , :tag => task) do
+		$scheduler.in('2m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
