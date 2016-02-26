@@ -83,11 +83,8 @@ class Task < ActiveRecord::Base
 
 	def self.in_5mins(task, user)
 		# @task = task
-<<<<<<< HEAD
-		$scheduler.in('3m' , :tag => task) do
-=======
+
 		@@scheduler.in('5m' , :tag => task) do
->>>>>>> andrew
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
