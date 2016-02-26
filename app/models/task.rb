@@ -3,9 +3,13 @@ class Task < ActiveRecord::Base
 	#relationships
 	belongs_to :user
 
+	require 'rufus-scheduler'
+
+	@@scheduler = Rufus::Scheduler.new
+
 	def self.every_15mins(task, user)
 		@task = task
-		$scheduler.every('15m' , :tag => task) do
+		@@scheduler.every('15m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(@task, @user.email).deliver
 		message = task
@@ -23,7 +27,7 @@ class Task < ActiveRecord::Base
 
 	def self.every_30mins(task, user)
 		# @task = task
-		$scheduler.every('30m' , :tag => task) do
+		@@scheduler.every('30m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -41,7 +45,7 @@ class Task < ActiveRecord::Base
 
 	def self.every_hour(task, user)
 		# @task = task
-		$scheduler.every('20s' , :tag => task) do
+		@@scheduler.every('20s' , :tag => task) do
 			# puts ":tag" "ALSFJALKFJDKLJFSDLJF"
 
 		@user = user
@@ -61,7 +65,7 @@ class Task < ActiveRecord::Base
 
 	def self.every_3hours(task, user)
 		# @task = task
-		$scheduler.every('3h' , :tag => task) do
+		@@scheduler.every('3h' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -79,7 +83,11 @@ class Task < ActiveRecord::Base
 
 	def self.in_5mins(task, user)
 		# @task = task
+<<<<<<< HEAD
 		$scheduler.in('3m' , :tag => task) do
+=======
+		@@scheduler.in('5m' , :tag => task) do
+>>>>>>> andrew
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -97,7 +105,7 @@ class Task < ActiveRecord::Base
 
 	def self.in_10mins(task, user)
 		# @task = task
-		$scheduler.in('10m' , :tag => task) do
+		@@scheduler.in('10m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -115,7 +123,7 @@ class Task < ActiveRecord::Base
 
 	def self.in_15mins(task, user)
 		# @task = task
-		$scheduler.in('15m' , :tag => task) do
+		@@scheduler.in('15m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -133,7 +141,7 @@ class Task < ActiveRecord::Base
 
 	def self.in_30mins(task, user)
 		# @task = task
-		$scheduler.in('30m' , :tag => task) do
+		@@scheduler.in('30m' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -151,7 +159,7 @@ class Task < ActiveRecord::Base
 
 	def self.in_1hour(task, user)
 		# @task = task
-		$scheduler.in('1h' , :tag => task) do
+		@@scheduler.in('1h' , :tag => task) do
 		@user = user
 		ReminderMailer.task_email(task, @user.email).deliver
 		message = task
@@ -166,5 +174,14 @@ class Task < ActiveRecord::Base
 													:body => "#{message}"})
 		end
 	end
+
+	def self.unschedule(task)
+		@@scheduler.jobs(:tag => task).each do |mess|
+		 	if mess.tags.include?(task)
+		 		mess.unschedule
+		 	end
+		end
+	end
+
 
 end
